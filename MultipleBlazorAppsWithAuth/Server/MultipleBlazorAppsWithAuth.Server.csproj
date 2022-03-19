@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>MultipleBlazorAppsWithAuth.Server-905BE299-AC05-4CEE-A0EF-1ED63D03B401</UserSecretsId>
   </PropertyGroup>
 
