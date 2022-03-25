@@ -44,7 +44,8 @@ async function onFetch(event) {
         const shouldServeIndexHtml = event.request.mode === 'navigate'
             && !event.request.url.includes('/connect/')
             && !event.request.url.includes('/Identity/')
-            && !event.request.url.includes('/secondapp');
+            && !event.request.url.includes('/secondapp/')
+            && !event.request.url.includes('/3app/');
 
         const request = shouldServeIndexHtml ? 'index.html' : event.request;
         const cache = await caches.open(cacheName);

@@ -79,7 +79,6 @@ namespace MultipleBlazorAppsWithAuth.Server
                 return next();
             });
 
-
             app.MapWhen(ctx => !ctx.Request.Path.StartsWithSegments("/secondapp"), first =>
             {
                 first.UseBlazorFrameworkFiles();
@@ -102,7 +101,6 @@ namespace MultipleBlazorAppsWithAuth.Server
                 first.UseBlazorFrameworkFiles("/secondapp");
                 first.UseStaticFiles();
                 first.UseStaticFiles("/secondapp");
-
                 first.UseRouting();
                 first.UseIdentityServer();
                 first.UseAuthentication();
@@ -111,6 +109,40 @@ namespace MultipleBlazorAppsWithAuth.Server
                 {
                     endpoints.MapControllers();
                     endpoints.MapFallbackToFile("secondapp/{*path:nonfile}", "secondapp/index.html");
+                });
+            });
+            
+            app.MapWhen(ctx => !ctx.Request.Path.StartsWithSegments("/3app"), first =>
+            {
+                first.UseBlazorFrameworkFiles();
+                first.UseStaticFiles();
+
+                first.UseRouting();
+                first.UseIdentityServer();
+                first.UseAuthentication();
+                first.UseAuthorization();
+                first.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapRazorPages();
+                    endpoints.MapControllers();
+                    endpoints.MapFallbackToFile("{*path:}", "index.html");//only naked domain
+                });
+            });
+
+            app.MapWhen(ctx => ctx.Request.Path.StartsWithSegments("/3app"), first =>
+            {
+                first.UseBlazorFrameworkFiles("/3app");
+                first.UseStaticFiles();
+                first.UseStaticFiles("/3app");
+
+                first.UseRouting();
+                first.UseIdentityServer();
+                first.UseAuthentication();
+                first.UseAuthorization();
+                first.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                    endpoints.MapFallbackToFile("3app/{*path:nonfile}", "3app/index.html");
                 });
             });
 

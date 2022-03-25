@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\MultipleBlazorAppsWithAuth.Client2\MultipleBlazorAppsWithAuth.Client2.csproj" />
+    <ProjectReference Include="..\..\MultipleBlazorAppsWithAuth.Client3\MultipleBlazorAppsWithAuth.Client3.csproj" />
     <ProjectReference Include="..\Client\MultipleBlazorAppsWithAuth.Client.csproj" />
     <ProjectReference Include="..\Shared\MultipleBlazorAppsWithAuth.Shared.csproj" />
   </ItemGroup>

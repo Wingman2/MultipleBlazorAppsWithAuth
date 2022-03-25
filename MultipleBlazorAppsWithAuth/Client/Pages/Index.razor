@@ -6,6 +6,9 @@
 <a href="secondapp">Second client</a>
 <button @onclick="ToSecondClient">Second client (with forced reload)</button>
 
+<a href="3app">3 client</a>
+<button @onclick="To3Client">3 client (with forced reload)</button>
+
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
@@ -14,5 +17,10 @@ Welcome to your new app.
     void ToSecondClient()
     {
         NavigationManager.NavigateTo("https://blazor-multi-apps.azurewebsites.net/secondapp", true);
+    }
+
+    void To3Client()
+    {
+        NavigationManager.NavigateTo("https://blazor-multi-apps.azurewebsites.net/3app", true);
     }
 }

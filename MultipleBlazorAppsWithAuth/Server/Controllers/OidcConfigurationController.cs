@@ -18,7 +18,8 @@ namespace MultipleBlazorAppsWithAuth.Server.Controllers
 
         [HttpGet("_configuration/{clientId}")]
         [HttpGet("FirstApp/_configuration/{clientId}")]
-        [HttpGet("SecondApp/_configuration/{clientId}")]
+        [HttpGet("secondapp/_configuration/{clientId}")]
+        [HttpGet("3app/_configuration/{clientId}")]
         public IActionResult GetClientRequestParameters([FromRoute] string clientId)
         {
             var parameters = ClientRequestParametersProvider.GetClientParameters(HttpContext, clientId);
